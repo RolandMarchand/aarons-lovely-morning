@@ -432,7 +432,7 @@ size_flags_vertical = 4
 [node name="Title" type="Label" parent="Menu/Main"]
 margin_right = 393.0
 margin_bottom = 46.0
-text = "Aaron's Beautiful Morning"
+text = "Aaron's Lovely Morning"
 align = 1
 valign = 1
 
