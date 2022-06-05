@@ -1,4 +1,4 @@
-# Aaron's Beautiful Morning
+# Aaron's Lovely Morning
 ![](https://moowool.info/aarons_beautiful_morning.png)
 ## Description
 [Godot](https://godotengine.org/) game developed by [Moowool](https://moowool.info/) as a gift for [Aaron Franke](https://www.furaffinity.net/gallery/aaronfranke/) using his custom [Node1D](https://github.com/aaronfranke/godot-1d) nodes.

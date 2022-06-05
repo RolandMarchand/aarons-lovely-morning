@@ -79,7 +79,7 @@ func _on_Player_state_changed(state):
 
 
 func _on_Player_damaged():
-	gui.get_node("Lives").value = player.health
+	gui.get_node(@"Lives").value = player.health
 	
 	if player.health > 0:
 		return

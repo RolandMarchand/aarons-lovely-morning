@@ -4,7 +4,6 @@ extends Food
 export(TYPE) var type = TYPE.TACO setget set_type
 
 func set_type(t: int):
-	
 	var mat: ShaderMaterial = material
 	mat.shader = SHADER[t]
 	
