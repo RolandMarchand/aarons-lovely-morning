@@ -1,0 +1,236 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/gui.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/gameplay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/scrolling_background.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.124224, 0.36646, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 200 ), 0.0, 0.0, 0, 0, Vector2( 0.2, -200 ), 0.0, 0.0, 0, 0, Vector2( 0.4, 200 ), 0.0, 0.0, 0, 0, Vector2( 0.6, -200 ), 0.0, 0.0, 0, 0, Vector2( 0.8, 200 ), 0.0, 0.0, 0, 0, Vector2( 1, -200 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+render_priority = -1
+emission_shape = 2
+emission_box_extents = Vector3( 1124, 532, 1 )
+flag_disable_z = true
+direction = Vector3( -1, 0.25, 0 )
+spread = 25.0
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 311.02
+initial_velocity_random = 0.1
+angular_velocity_random = 0.26
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 12.31
+tangential_accel = 100.0
+tangential_accel_random = 0.26
+tangential_accel_curve = SubResource( 7 )
+scale = 10.0
+scale_random = 1.0
+scale_curve = SubResource( 5 )
+color = Color( 0.780392, 0.941176, 0.992157, 1 )
+color_ramp = SubResource( 3 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 1
+
+[sub_resource type="Animation" id=14]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flash/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flash/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Flash/ColorRect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "game_over"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ViewportContainer/Viewport/Gameplay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 2 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("ViewportContainer/Viewport/GUI")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show_game_over"
+} ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "open"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flash/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Flash/ColorRect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
+
+[node name="Main" type="Node1D"]
+pause_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 860.0 ],
+"_edit_vertical_guides_": [ 2049.0 ]
+}
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 4 )]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 2048.0
+margin_bottom = 864.0
+stretch = true
+stretch_shrink = 4
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "The player is a different viewport as the BG for smooth scrolling."
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 512, 216 )
+size_override_stretch = true
+transparent_bg = true
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+
+[node name="Gameplay" parent="ViewportContainer/Viewport" groups=["gameplay"] instance=ExtResource( 3 )]
+pause_mode = 1
+
+[node name="GUI" parent="ViewportContainer/Viewport" instance=ExtResource( 2 )]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 1458, 318 )
+amount = 50
+lifetime = 3.0
+preprocess = 10.0
+process_material = SubResource( 1 )
+
+[node name="Pulses" type="Node1D" parent="."]
+
+[node name="Flash" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Flash"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 8 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "open"
+anims/RESET = SubResource( 14 )
+anims/close = SubResource( 13 )
+anims/game_over = SubResource( 11 )
+anims/open = SubResource( 12 )
+
+[node name="Tooltip" type="Timer" parent="."]
+pause_mode = 1
+wait_time = 7.0
+one_shot = true
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="start" from="ViewportContainer/Viewport/GUI" to="Tooltip" method="start"]
+[connection signal="tree_entered" from="Flash/ColorRect" to="Flash/ColorRect" method="show"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Tooltip" to="ViewportContainer/Viewport/GUI" method="show_tooltip"]

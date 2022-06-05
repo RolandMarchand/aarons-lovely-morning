@@ -1,0 +1,67 @@
+[gd_resource type="Theme" load_steps=15 format=2]
+
+[ext_resource path="res://sprites/slider_grabber.png" type="Texture" id=1]
+
+[sub_resource type="DynamicFontData" id=37]
+antialiased = false
+font_path = "res://resources/comic.ttf"
+
+[sub_resource type="DynamicFont" id=1]
+font_data = SubResource( 37 )
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="StyleBoxEmpty" id=34]
+
+[sub_resource type="StyleBoxEmpty" id=35]
+
+[sub_resource type="StyleBoxLine" id=36]
+color = Color( 1, 1, 1, 1 )
+thickness = 2
+
+[sub_resource type="DynamicFontData" id=26]
+antialiased = false
+font_path = "res://resources/comic.ttf"
+
+[sub_resource type="DynamicFont" id=27]
+size = 32
+font_data = SubResource( 26 )
+
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[resource]
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.494118, 0.494118, 0.494118, 1 )
+Button/colors/font_color_focus = Color( 1, 1, 1, 1 )
+Button/colors/font_color_hover = Color( 0.92549, 0.92549, 0.92549, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 1 )
+Button/styles/disabled = SubResource( 21 )
+Button/styles/focus = SubResource( 22 )
+Button/styles/hover = SubResource( 23 )
+Button/styles/normal = SubResource( 24 )
+Button/styles/pressed = SubResource( 25 )
+HSlider/icons/grabber = ExtResource( 1 )
+HSlider/icons/grabber_disabled = ExtResource( 1 )
+HSlider/icons/grabber_highlight = ExtResource( 1 )
+HSlider/styles/grabber_area = SubResource( 34 )
+HSlider/styles/grabber_area_highlight = SubResource( 35 )
+HSlider/styles/slider = SubResource( 36 )
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 27 )
+Label/styles/normal = SubResource( 20 )

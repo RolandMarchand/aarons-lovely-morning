@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=11]
+code = "shader_type canvas_item;
+
+uniform float scroll_speed: hint_range(0.0,1.0);
+
+void fragment() {
+	vec2 pixelUV = UV + vec2(scroll_speed, 0) * TIME;
+	vec4 pixelColor = texture(TEXTURE, pixelUV);
+	COLOR = pixelColor;
+}"
+
+[resource]
+shader = SubResource( 11 )
+shader_param/scroll_speed = 0.05

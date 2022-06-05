@@ -1,0 +1,605 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://sprites/bar.png" type="Texture" id=1]
+[ext_resource path="res://scripts/gui.gd" type="Script" id=2]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=3]
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 4
+
+[sub_resource type="DynamicFontData" id=37]
+antialiased = false
+font_path = "res://resources/comic.ttf"
+
+[sub_resource type="DynamicFont" id=36]
+font_data = SubResource( 37 )
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "show_modal"
+} ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameOver:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "game_over"
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameOver:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("GameOver")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
+
+[sub_resource type="DynamicFontData" id=38]
+antialiased = false
+font_path = "res://resources/comic.ttf"
+
+[sub_resource type="DynamicFont" id=34]
+font_data = SubResource( 38 )
+
+[sub_resource type="DynamicFontData" id=39]
+antialiased = false
+font_path = "res://resources/comic.ttf"
+
+[sub_resource type="DynamicFont" id=35]
+size = 12
+font_data = SubResource( 39 )
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
+
+[node name="GUI" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="Lives" type="TextureProgress" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 13.0
+margin_top = 10.0
+margin_right = 41.0
+margin_bottom = 26.0
+theme = ExtResource( 3 )
+max_value = 3.0
+value = 3.0
+texture_progress = ExtResource( 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lives"]
+anims/RESET = SubResource( 12 )
+anims/show = SubResource( 13 )
+
+[node name="Tooltip" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 9 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -41.0
+margin_bottom = -18.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 36 )
+text = "Controls: 1 2 3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tooltip"]
+anims/RESET = SubResource( 16 )
+anims/hide = SubResource( 17 )
+anims/show = SubResource( 15 )
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = -56.0
+margin_right = 83.0
+margin_bottom = -10.0
+theme = ExtResource( 3 )
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -39.5
+margin_top = -11.0
+margin_right = 39.5
+margin_bottom = 18.0
+focus_mode = 0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+text = "Restart?"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver"]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 14 )
+anims/game_over = SubResource( 5 )
+
+[node name="Menu" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="VBoxContainer" parent="Menu"]
+margin_left = 827.0
+margin_top = 368.0
+margin_right = 1220.0
+margin_bottom = 495.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="Menu/Main"]
+margin_right = 393.0
+margin_bottom = 46.0
+text = "Aaron's Beautiful Morning"
+align = 1
+valign = 1
+
+[node name="Play" type="Button" parent="Menu/Main"]
+margin_left = 182.0
+margin_top = 50.0
+margin_right = 210.0
+margin_bottom = 73.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+text = "Play"
+flat = true
+
+[node name="Options" type="Button" parent="Menu/Main"]
+margin_left = 167.0
+margin_top = 77.0
+margin_right = 225.0
+margin_bottom = 100.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+text = "Options"
+flat = true
+
+[node name="Quit" type="Button" parent="Menu/Main"]
+margin_left = 179.0
+margin_top = 104.0
+margin_right = 213.0
+margin_bottom = 127.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+text = "Quit"
+flat = true
+
+[node name="ReallyQuit" type="Button" parent="Menu/Main"]
+visible = false
+margin_top = 90.0
+margin_right = 2048.0
+margin_bottom = 110.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+text = "Really Quit?"
+flat = true
+
+[node name="Options" type="VBoxContainer" parent="Menu"]
+visible = false
+margin_left = 968.0
+margin_top = 396.0
+margin_right = 1080.0
+margin_bottom = 468.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen" type="Button" parent="Menu/Options"]
+margin_left = 18.0
+margin_right = 94.0
+margin_bottom = 23.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+text = "Fullscreen"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" type="HBoxContainer" parent="Menu/Options"]
+margin_top = 27.0
+margin_right = 112.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="Menu/Options/Sound"]
+margin_right = 44.0
+margin_bottom = 23.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 34 )
+text = "Sound"
+align = 1
+valign = 1
+
+[node name="Slider" type="HSlider" parent="Menu/Options/Sound"]
+margin_left = 48.0
+margin_top = 7.0
+margin_right = 112.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 64, 0 )
+mouse_default_cursor_shape = 13
+size_flags_horizontal = 0
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="Back" type="Button" parent="Menu/Options"]
+margin_left = 43.0
+margin_top = 54.0
+margin_right = 69.0
+margin_bottom = 72.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 35 )
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu"]
+anims/RESET = SubResource( 18 )
+anims/hide = SubResource( 30 )
+anims/show = SubResource( 19 )
+
+[node name="Paused" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -56.0
+margin_right = 51.5
+margin_bottom = -10.0
+theme = ExtResource( 3 )
+text = "Paused"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Unpause" type="Button" parent="Paused"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -37.0
+margin_top = -11.0
+margin_right = 37.0
+margin_bottom = 18.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Unpause"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paused"]
+anims/RESET = SubResource( 31 )
+anims/hide = SubResource( 33 )
+anims/show = SubResource( 32 )
+
+[connection signal="pressed" from="Menu/Main/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Menu/Main/Options" to="Menu/Main" method="hide"]
+[connection signal="pressed" from="Menu/Main/Options" to="Menu/Main/Quit" method="show"]
+[connection signal="pressed" from="Menu/Main/Options" to="Menu/Main/ReallyQuit" method="hide"]
+[connection signal="pressed" from="Menu/Main/Options" to="Menu/Options" method="show"]
+[connection signal="pressed" from="Menu/Main/Quit" to="Menu/Main/Quit" method="hide"]
+[connection signal="pressed" from="Menu/Main/Quit" to="Menu/Main/ReallyQuit" method="show"]
+[connection signal="pressed" from="Menu/Main/ReallyQuit" to="." method="_on_ReallyQuit_pressed"]
+[connection signal="pressed" from="Menu/Options/Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="value_changed" from="Menu/Options/Sound/Slider" to="." method="_on_Slider_value_changed"]
+[connection signal="pressed" from="Menu/Options/Back" to="Menu/Main" method="show"]
+[connection signal="pressed" from="Menu/Options/Back" to="Menu/Options" method="hide"]
+[connection signal="pressed" from="Paused/Unpause" to="." method="_on_Unpause_pressed"]
