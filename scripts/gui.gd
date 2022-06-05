@@ -32,6 +32,7 @@ func show_paused() -> void:
 func hide_paused() -> void:
 	$Paused/AnimationPlayer.play("hide")
 
+
 func _on_ReallyQuit_pressed():
 	get_tree().quit(0)
 
