@@ -25,7 +25,7 @@ To run the project, you will need a custom build of Godot v3.4-stable (or compat
 
 ## License
 ```
-Hallowed Horns Copyright (C) 2021 moowool195@gmail.com
+Aaron's Lovely Morning Copyright (C) 2021 moowool195@gmail.com
 This program is free software, covered by the GNU General Public License.
 
 
