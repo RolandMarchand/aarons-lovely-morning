@@ -1,0 +1,131 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://sprites/mountains/sky_lightened.png" type="Texture" id=1]
+[ext_resource path="res://sprites/mountains/clouds_mg_3.png" type="Texture" id=2]
+[ext_resource path="res://sprites/mountains/clouds_bg.png" type="Texture" id=3]
+[ext_resource path="res://sprites/mountains/clouds_mg_1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/mountains/clouds_mg_2.png" type="Texture" id=5]
+[ext_resource path="res://scripts/scrolling_background.gd" type="Script" id=6]
+[ext_resource path="res://sprites/mountains/glacial_mountains.png" type="Texture" id=8]
+[ext_resource path="res://sprites/mountains/cloud_lonely.png" type="Texture" id=9]
+[ext_resource path="res://sprites/mountains/glacial_mountains_lightened.png" type="Texture" id=10]
+[ext_resource path="res://sprites/mountains/clouds_mg_1_lightened.png" type="Texture" id=11]
+[ext_resource path="res://sprites/mountains/sky.png" type="Texture" id=12]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void vertex() {
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="ScrollingBackground" type="ParallaxBackground"]
+layer = -1
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 864.0 ],
+"_edit_vertical_guides_": [ 1537.0 ]
+}
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 3072, 0 )
+
+[node name="Sky" type="Sprite" parent="ParallaxLayer"]
+visible = false
+scale = Vector2( 4, 4 )
+texture = ExtResource( 12 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
+
+[node name="SkyLightened" type="Sprite" parent="ParallaxLayer"]
+material = SubResource( 2 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 3072, 0 )
+
+[node name="CloudsBg" type="Sprite" parent="ParallaxLayer2"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 3072, 0 )
+
+[node name="GlacialMountains" type="Sprite" parent="ParallaxLayer3"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
+
+[node name="GlacialMountainsLightened" type="Sprite" parent="ParallaxLayer3"]
+visible = false
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 1.2, 1 )
+motion_mirroring = Vector2( 3072, 0 )
+
+[node name="CloudLonely" type="Sprite" parent="ParallaxLayer4"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 9 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 1.4, 1 )
+motion_mirroring = Vector2( 3072, 0 )
+
+[node name="CloudsMg3" type="Sprite" parent="ParallaxLayer5"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 1.8, 1 )
+motion_mirroring = Vector2( 3072, 0 )
+
+[node name="CloudsMg2" type="Sprite" parent="ParallaxLayer6"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 2.2, 1 )
+motion_mirroring = Vector2( 3072, 0 )
+
+[node name="CloudsMg1" type="Sprite" parent="ParallaxLayer7"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
+
+[node name="CloudsMg1Lightened" type="Sprite" parent="ParallaxLayer7"]
+visible = false
+scale = Vector2( 4, 4 )
+texture = ExtResource( 11 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 768, 216 )
