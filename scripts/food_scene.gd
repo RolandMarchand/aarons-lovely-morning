@@ -15,7 +15,7 @@ func _on_Food_body_entered(body: CanvasItem):
 	if not body.is_in_group("player"):
 		return
 	
-	if body.state == type:
+	if get_parent().zen_mode or body.state == type:
 		body.eat(self)
 	else:
 		body.damage()
