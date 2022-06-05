@@ -47,15 +47,19 @@ func _unhandled_key_input(_event):
 	if gameplay.is_started():
 		return
 	
-	# Skipping Taco because it has no feedback
-	if Input.is_action_just_pressed("pizza"):
+	var zen = Input.is_action_just_pressed("zen_mode")
+	var pizza = Input.is_action_just_pressed("pizza")
+	var burrito = Input.is_action_just_pressed("burrito")
+	if zen or pizza or burrito:
+		gameplay.zen_mode = zen
 		gameplay.start()
-		gui.show_lives()
-		player.change_state(Food.TYPE.PIZZA)
-	elif Input.is_action_just_pressed("burrito"):
-		gameplay.start()
-		gui.show_lives()
-		player.change_state(Food.TYPE.BURRITO)
+		if not zen:
+			gui.show_lives()
+		# Skipping Taco because it has no feedback
+		if pizza:
+			player.change_state(Food.TYPE.PIZZA)
+		elif burrito:
+			player.change_state(Food.TYPE.BURRITO)
 	else:
 		return
 	
