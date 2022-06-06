@@ -25,7 +25,8 @@ func _ready():
 	player.connect("ate", self, "_on_Player_ate")
 	
 	# warning-ignore:return_value_discarded
-	gui.get_node("GameOver/Restart").connect("pressed", self, "_on_Restart_pressed")
+	gui.get_node(@"GameOver/Buttons/Restart").connect("pressed", self, "_on_Restart_pressed")
+	gui.get_node(@"GameOver/Buttons/MainMenu").connect("pressed", self, "_on_Restart_pressed")
 	
 	if Global.state == Global.STATE_GAME:
 		$Tooltip.start()

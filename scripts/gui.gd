@@ -25,6 +25,10 @@ func show_lives() -> void:
 	$Lives/AnimationPlayer.play("show")
 
 
+func hide_lives() -> void:
+	$Lives/AnimationPlayer.play("hide")
+
+
 func show_paused() -> void:
 	$Paused/AnimationPlayer.play("show")
 
@@ -54,3 +58,7 @@ func _on_Slider_value_changed(value):
 func _on_Unpause_pressed():
 	get_tree().paused = false
 	$Paused/AnimationPlayer.play("hide")
+
+
+func _on_MainMenu_pressed():
+	Global.state = Global.STATE_MENU
