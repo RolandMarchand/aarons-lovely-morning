@@ -38,6 +38,7 @@ func _physics_process(delta):
 	# warning-ignore:return_value_discarded
 	move_and_collide(speed * delta)
 
+
 func eat(_food: Food) -> void:
 	$EatSound.pitch_scale = rand_range(0.9, 1.2)
 	$EatSound.play()
@@ -46,9 +47,9 @@ func eat(_food: Food) -> void:
 	$EatingParticlesPosition.add_child(particles)
 	particles.emitting = true
 
+
 func damage() -> void:
 	health -= 1
 	
 	$Damaged.play("damaged")
 	emit_signal("damaged")
-	
