@@ -22,10 +22,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.7, 1, 1.2 ),
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 2, 2, 0.5, -0.5, 0 ),
 "update": 0,
-"values": [ 0.3, 0.6, -0.3, 0.15, 0.0 ]
+"values": [ 0.3, 0.6, -0.3, 0.3, 0.0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AudioStreamPlayer:playing")

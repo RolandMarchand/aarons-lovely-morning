@@ -2,16 +2,27 @@ extends KinematicBody1D
 
 signal state_changed(state)
 signal damaged
+signal healed
+signal ate
 
 const EATING_PARTICLES_SCENE := preload("res://scenes/eating_particles.tscn")
 
+const DEFAULT_SPEED := 100
+const MAX_SPEED := 150
+const SPEED_INCREASE := 1
+const MIN_SCORE_TO_INCREASE_SPEED := 70
+const HEAL_FREQUENCY := 40
+const MAX_HEALTH := 3
+
 enum STATE {NORMAL, ALTERNATE}
 
-export(float, 0.1, 10) var speed = 100
+export(int, 0, 200) var speed = DEFAULT_SPEED
+export(bool) var invincible = false # Managed in the Damaged animation player
 
 var state = Food.TYPE.TACO
-var health = 3
+var health = MAX_HEALTH
 var disabled = true
+var score = 0
 
 
 func _unhandled_key_input(_event):
@@ -46,10 +57,31 @@ func eat(_food: Food) -> void:
 	var particles = EATING_PARTICLES_SCENE.instance()
 	$EatingParticlesPosition.add_child(particles)
 	particles.emitting = true
+	
+	score += 1
+	if score > MIN_SCORE_TO_INCREASE_SPEED:
+		speed = min(speed + SPEED_INCREASE, MAX_SPEED)
+	
+	if score % HEAL_FREQUENCY == 0 and health < MAX_HEALTH:
+		health += 1
+		$HealthChanged.play("healed")
+		emit_signal("healed")
+	
+	emit_signal("ate")
 
 
 func damage() -> void:
+	if invincible:
+		return
+	
 	health -= 1
 	
-	$Damaged.play("damaged")
+	$Pause.start()
+	speed = 0
+	
+	$HealthChanged.play("damaged")
 	emit_signal("damaged")
+
+
+func _on_Pause_timeout():
+	speed = DEFAULT_SPEED

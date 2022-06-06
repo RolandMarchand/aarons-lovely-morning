@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/trail.gd" type="Script" id=1]
 [ext_resource path="res://sprites/output-onlinegiftools.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sound/flap.wav" type="AudioStream" id=5]
 [ext_resource path="res://sound/eat.wav" type="AudioStream" id=6]
 [ext_resource path="res://sound/damaged.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sound/heal.wav" type="AudioStream" id=8]
 
 [sub_resource type="Shader" id=8]
 code = "shader_type canvas_item;
@@ -39,6 +40,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:invincible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:material:shader_param/color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "damaged"
@@ -62,6 +87,73 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:invincible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:material:shader_param/color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "healed"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 1, 0.454902, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:shader_param/flashState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 1.4 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("HealedSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -171,10 +263,11 @@ __meta__ = {
 "_edit_vertical_guides_": [ -171.0 ]
 }
 
-[node name="Damaged" type="AnimationPlayer" parent="."]
+[node name="HealthChanged" type="AnimationPlayer" parent="."]
 playback_speed = 1.5
 anims/RESET = SubResource( 10 )
 anims/damaged = SubResource( 11 )
+anims/healed = SubResource( 12 )
 
 [node name="Trail" type="Line2D" parent="."]
 material = SubResource( 7 )
@@ -237,8 +330,18 @@ pitch_scale = 1.24
 stream = ExtResource( 7 )
 volume_db = -13.0
 
+[node name="HealedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -13.0
+
 [node name="EatingParticlesPosition" type="Position2D" parent="."]
 position = Vector2( 9, -1 )
 
 [node name="Spawn" type="Node1D" parent="."]
 position = 425.0
+
+[node name="Pause" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="Pause" to="." method="_on_Pause_timeout"]
