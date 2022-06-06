@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://sprites/bar.png" type="Texture" id=1]
 [ext_resource path="res://scripts/gui.gd" type="Script" id=2]
@@ -51,12 +51,12 @@ tracks/1/keys = {
 [sub_resource type="CanvasItemMaterial" id=9]
 blend_mode = 4
 
-[sub_resource type="DynamicFontData" id=37]
+[sub_resource type="DynamicFontData" id=40]
 antialiased = false
 font_path = "res://resources/comic.ttf"
 
 [sub_resource type="DynamicFont" id=36]
-font_data = SubResource( 37 )
+font_data = SubResource( 40 )
 
 [sub_resource type="Animation" id=16]
 length = 0.001
@@ -130,6 +130,10 @@ tracks/1/keys = {
 "method": "show"
 } ]
 }
+
+[sub_resource type="DynamicFont" id=41]
+size = 10
+font_data = SubResource( 40 )
 
 [sub_resource type="Animation" id=14]
 length = 0.001
@@ -353,21 +357,33 @@ material = SubResource( 9 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -41.0
-margin_bottom = -18.0
+margin_top = -50.0
+margin_bottom = -20.0
 theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 36 )
 text = "Controls: 1 2 3"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tooltip"]
 anims/RESET = SubResource( 16 )
 anims/hide = SubResource( 17 )
 anims/show = SubResource( 15 )
+
+[node name="ZenMode" type="Label" parent="Tooltip"]
+material = SubResource( 9 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_right = 50.0
+margin_bottom = 20.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 41 )
+text = "Zen Mode: 0"
+align = 1
+valign = 2
 
 [node name="GameOver" type="Label" parent="."]
 visible = false
@@ -422,9 +438,9 @@ __meta__ = {
 }
 
 [node name="Main" type="VBoxContainer" parent="Menu"]
-margin_left = 827.0
+margin_left = 848.0
 margin_top = 368.0
-margin_right = 1220.0
+margin_right = 1199.0
 margin_bottom = 495.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
