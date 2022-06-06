@@ -25,7 +25,7 @@ func _on_Timer_timeout():
 func add_food() -> void:
 	var food: Food = FOOD_SCENE.instance()
 	
-	food.type = randi() % 3
+	food.type = rng.randi() % 3
 	
 	if zen_mode:
 		food.material = Food.SHADER[Food.TYPE.TACO]
