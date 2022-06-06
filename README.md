@@ -12,6 +12,8 @@ To run the project, you will need a custom build of Godot v3.4-stable (or compat
 [bmccoy2](https://freesound.org/people/bmccoy2/sounds/256152/)
 * Damaged Sound:
 [Kenney](https://kenney.nl/assets/impact-sounds)
+* Healing Sound:
+[SilverIllusionist](https://freesound.org/people/SilverIllusionist/sounds/518800/)
 * Eating Sound:
 [Koops](https://freesound.org/people/Koops/sounds/20279/)
 * Food Art:
