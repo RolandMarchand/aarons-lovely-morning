@@ -19,19 +19,26 @@ func _ready():
 	player.connect("state_changed", self, "_on_Player_state_changed")
 	# warning-ignore:return_value_discarded
 	player.connect("damaged", self, "_on_Player_damaged")
+	# warning-ignore:return_value_discarded
+	player.connect("healed", self, "_on_Player_healed")
+	# warning-ignore:return_value_discarded
+	player.connect("ate", self, "_on_Player_ate")
 	
 	# warning-ignore:return_value_discarded
 	gui.get_node("GameOver/Restart").connect("pressed", self, "_on_Restart_pressed")
 	
 	if Global.state == Global.STATE_GAME:
 		$Tooltip.start()
+	
+	if Global.high_score != 0:
+		gui.get_node(@"Menu/HighScore/Label").text = "High Score: " + str(Global.high_score)
 
 
 func _unhandled_key_input(_event):
 	if Global.state != Global.STATE_GAME:
 		return
 	
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and not Global.lost:
 		if get_tree().paused:
 			get_tree().paused = false
 			gui.hide_paused()
@@ -89,8 +96,21 @@ func _on_Player_damaged():
 		return
 	
 	get_tree().paused = true
+	Global.lost = true
+	
+	if player.score > Global.high_score:
+		Global.high_score = player.score
+		Global.save()
 	
 	$AnimationPlayer.play("game_over")
+
+
+func _on_Player_healed():
+	gui.get_node(@"Lives").value = min(player.health, player.MAX_HEALTH)
+
+
+func _on_Player_ate():
+	gui.get_node(@"Lives/Score").text = str(player.score)
 
 
 func _on_Restart_pressed():
@@ -100,5 +120,6 @@ func _on_Restart_pressed():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "close":
 		get_tree().paused = false
+		Global.lost = false
 		# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://scenes/main.tscn")

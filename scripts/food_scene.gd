@@ -1,14 +1,26 @@
 tool
 extends Food
 
+const TIP := {
+	TYPE.TACO: "1",
+	TYPE.PIZZA: "2",
+	TYPE.BURRITO: "3",
+}
+
 export(TYPE) var type = TYPE.TACO setget set_type
 
+var show_tip := true
+
+
 func set_type(t: int):
-	var mat: ShaderMaterial = material
-	mat.shader = SHADER[t]
+	material.shader = SHADER[t]
 	
 	$Sprite.frame = t
 	type = t
+
+
+func _ready():
+	$Sprite/Tip.text = TIP.get(type, "")
 
 
 func _on_Food_body_entered(body: CanvasItem):

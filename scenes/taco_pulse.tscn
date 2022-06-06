@@ -15,7 +15,7 @@ curve = SubResource( 7 )
 
 [sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 1 )
-shader_param/strength = 0.6
+shader_param/strength = 0.3
 shader_param/curve = SubResource( 8 )
 
 [node name="TacoPulse" type="Sprite"]
