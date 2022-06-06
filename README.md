@@ -3,7 +3,7 @@
 ## Description
 [Godot](https://godotengine.org/) game developed by [Moowool](https://moowool.info/) as a gift for [Aaron Franke](https://www.furaffinity.net/gallery/aaronfranke/) using his custom [Node1D](https://github.com/aaronfranke/godot-1d) nodes.
 
-To run the project, you will need a custom build of Godot v3.4-stable (or compatible) with the [Godot 1D](https://github.com/aaronfranke/godot-1d) extension.
+To run the project, you will need a custom build of Godot v3.4-stable (or compatible) with the [Godot 1D](https://github.com/aaronfranke/godot-1d) extension compiled [custom.py](https://git.moowool.info/moowool/aarons-lovely-morning/src/branch/master/custom.py).
 
 ## Credits
 * Aaron Art:
