@@ -339,9 +339,3 @@ position = Vector2( 9, -1 )
 
 [node name="Spawn" type="Node1D" parent="."]
 position = 425.0
-
-[node name="Pause" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-
-[connection signal="timeout" from="Pause" to="." method="_on_Pause_timeout"]
