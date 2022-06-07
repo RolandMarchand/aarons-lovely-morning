@@ -36,9 +36,8 @@ func _ready():
 	
 	high_score = cfg.get_value("Stats", "High Score", 0)
 
+
 func save():
 	var cfg = ConfigFile.new()
-	
 	cfg.set_value("Stats", "High Score", high_score)
-	
 	cfg.save_encrypted_pass(SAVE_DIR, PASSWORD)

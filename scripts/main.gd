@@ -32,7 +32,6 @@ onready var gui := $ViewportContainer/Viewport/GUI
 
 func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
-	
 	player.connect("state_changed", self, "_on_Player_state_changed")
 	player.connect("damaged", self, "_on_Player_damaged")
 	player.connect("healed", self, "_on_Player_healed")
