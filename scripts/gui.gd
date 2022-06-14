@@ -23,6 +23,10 @@ func _ready():
 		$Menu.show()
 	
 	$Menu/Options/Sound/Slider.value = db2linear(AudioServer.get_bus_volume_db(0))
+	
+	if OS.get_name() == "HTML5":
+		$GameOver/Buttons/Quit.hide()
+		$Menu/Main/Quit.hide()
 
 
 func show_game_over() -> void:
