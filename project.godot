@@ -36,11 +36,11 @@ Global="*res://scripts/global.gd"
 
 [display]
 
-window/size/width=2048
-window/size/height=864
+window/size/height=432
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+window/stretch/shrink=0.25
 
 [input]
 

@@ -38,7 +38,6 @@ var score = 0
 
 onready var gameplay = get_parent()
 
-
 func _unhandled_key_input(_event):
 	if disabled:
 		return

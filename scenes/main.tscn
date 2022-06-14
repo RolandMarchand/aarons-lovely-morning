@@ -165,13 +165,16 @@ pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 4 )]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
-margin_right = 2048.0
-margin_bottom = 864.0
+margin_right = 4096.0
+margin_bottom = 1728.0
 stretch = true
-stretch_shrink = 4
+stretch_shrink = 8
 __meta__ = {
+"_edit_use_anchors_": false,
 "_editor_description_": "The player is a different viewport as the BG for smooth scrolling."
 }
 

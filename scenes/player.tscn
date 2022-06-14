@@ -337,5 +337,5 @@ volume_db = -13.0
 [node name="EatingParticlesPosition" type="Position2D" parent="."]
 position = Vector2( 9, -1 )
 
-[node name="Spawn" type="Node1D" parent="."]
+[node name="FoodSpawn" type="Node1D" parent="."]
 position = 425.0

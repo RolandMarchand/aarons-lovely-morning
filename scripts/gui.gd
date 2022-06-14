@@ -31,6 +31,9 @@ func show_game_over() -> void:
 
 func show_tooltip() -> void:
 	$Tooltip/AnimationPlayer.play("show")
+	yield(get_tree().create_timer(5.0), "timeout")
+	if $Tooltip.modulate == Color.white:
+		hide_tooltip()
 
 
 func hide_tooltip() -> void:
