@@ -23,22 +23,20 @@ signal ate
 
 const EATING_PARTICLES_SCENE := preload("res://scenes/eating_particles.tscn")
 
-const DEFAULT_SPEED := 100
-const MAX_SPEED := 150
-const SPEED_INCREASE := 1
-const MIN_SCORE_TO_INCREASE_SPEED := 70
+const SPEED := 100
 const HEAL_FREQUENCY := 40
 const MAX_HEALTH := 3
 
 enum STATE {NORMAL, ALTERNATE}
 
-export(int, 0, 200) var speed = DEFAULT_SPEED
 export(bool) var invincible = false # Managed in the Damaged animation player
 
 var state = Food.TYPE.TACO
 var health = MAX_HEALTH
 var disabled = true
 var score = 0
+
+onready var gameplay = get_parent()
 
 
 func _unhandled_key_input(_event):
@@ -63,7 +61,7 @@ func change_state(s):
 
 func _physics_process(delta):
 	# warning-ignore:return_value_discarded
-	move_and_collide(speed * delta)
+	move_and_collide(SPEED * delta)
 
 
 func eat(_food: Food) -> void:
@@ -74,10 +72,8 @@ func eat(_food: Food) -> void:
 	$EatingParticlesPosition.add_child(particles)
 	particles.emitting = true
 	
-	score += 1
-	if score > MIN_SCORE_TO_INCREASE_SPEED:
-		speed = min(speed + SPEED_INCREASE, MAX_SPEED)
-	
+	if not gameplay.zen_mode:
+		score += 1
 	if score % HEAL_FREQUENCY == 0 and health < MAX_HEALTH:
 		health += 1
 		$HealthChanged.play("healed")
@@ -91,13 +87,5 @@ func damage() -> void:
 		return
 	
 	health -= 1
-	
-	$Pause.start()
-	speed = 0
-	
 	$HealthChanged.play("damaged")
 	emit_signal("damaged")
-
-
-func _on_Pause_timeout():
-	speed = DEFAULT_SPEED
