@@ -29,7 +29,6 @@ onready var next_food_timer = $NextFoodTimer
 func _ready():
 	rng.randomize()
 
-
 func _on_Timer_timeout():
 	add_food()
 	next_food_timer.wait_time *= 0.998
@@ -44,7 +43,7 @@ func add_food() -> void:
 		food.material = Food.SHADER[Food.TYPE.TACO]
 		
 	add_child(food)
-	food.position = $Player/Spawn.global_position
+	food.position = $Player/FoodSpawn.global_position
 
 
 func start() -> void:

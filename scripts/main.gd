@@ -94,7 +94,7 @@ func _on_Player_state_changed(state):
 	assert(pulse_scene)
 	
 	var pulse = pulse_scene.instance()
-	pulse.global_position = Vector2(171, 108) * 4
+	pulse.global_position = Vector2(171, 108) * 8
 	
 	if $Pulses.get_children().size() > MAX_PULSES:
 		$Pulses.remove_child($Pulses.get_child(0))
