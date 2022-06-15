@@ -1,6 +1,9 @@
 # Generated using https://godot-build-options-generator.github.io
 # Add this file into the Godot 3.x source code to disable unnecessary modules.
 # Note: You must also add the 1D module to run Aaron's Lovely Morning.
+target = "release"
+tools = "no"
+production = "yes"
 disable_3d = "yes"
 deprecated = "no"
 minizip = "no"
